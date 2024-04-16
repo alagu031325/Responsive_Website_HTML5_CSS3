@@ -1,0 +1,710 @@
+/********************************/
+/* Header  */
+/********************************/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdf2e9;
+
+  /* Because the header wants to be sticky when scrolled, we give a definite height instead of using padding */
+  height: 9.6rem;
+  /* need padding for left and right */
+  padding: 0 6.4rem;
+  position: relative;
+}
+
+.logo {
+  height: 2.2rem;
+}
+
+/********************************/
+/* Navigation  */
+/********************************/
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 0.3s;
+  /* Good practice to set in all links */
+  display: inline-block;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #cf711f;
+}
+
+/* Increase the specificity so that these rules are applied */
+/* When both these two classes are there then these rules takes priority */
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  border-radius: 9px;
+  padding: 1.2rem 2.4rem;
+  color: #fff;
+  background-color: #e67e22;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  background-color: #cf711f;
+  color: #fff;
+}
+
+/* Mobile Navigation */
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+}
+
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: #333;
+}
+
+/* can select elements with attribute value */
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+
+/* Sticky Navigation */
+/* Apply all styles to header only if sticky class is in one of the parent element */
+.sticky .header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  /* Fixed height */
+  height: 8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  z-index: 9999;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+  background-color: rgba(255, 255, 255, 0.97);
+}
+
+.sticky .section-hero {
+  margin-top: 9.6rem;
+}
+
+/********************************/
+/* Hero section  */
+/********************************/
+
+.section-hero {
+  background-color: #fdf2e9;
+  /* top left bottom right */
+  padding: 4rem 0 8rem 0;
+}
+
+.hero {
+  /* max width is greater than the container width so cant use container class */
+  max-width: 130rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  align-items: center;
+  padding: 0 3.2rem;
+}
+
+.hero-description {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+/* column width chosen based on content
+use grid when you want specific column widths */
+.delivered-meals {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-top: 6.4rem;
+}
+
+.delivered-imgs {
+  display: flex;
+}
+
+.delivered-imgs img {
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 50%;
+  /* overlap and apply border for visual  appealing*/
+  margin-right: -1.6rem;
+  border: 3px solid #fdf2e9;
+}
+
+.delivered-imgs img:last-child {
+  margin: 0;
+}
+
+.delivered-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.delivered-text span {
+  /* Check color contrast and adjust for accessibility */
+  color: #cf711f;
+  font-weight: 700;
+}
+
+/********************************/
+/* Featured in section  */
+/********************************/
+.section-featured {
+  padding: 4rem 0 3.2rem 0;
+}
+
+.heading-featured-in {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  color: #777;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.logos img {
+  height: 3.2rem;
+  /* Filters are used manipulate the images */
+  /* To completely remove all colors */
+  filter: brightness(0);
+  /* To change it to grey reduce the opacity so it fades out */
+  opacity: 50%;
+}
+/********************************/
+/* How it works section  */
+/********************************/
+.section-how {
+  padding: 8rem 0;
+}
+
+.step-number {
+  font-size: 8.6rem;
+  color: #aaa;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.step-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+/* .step-text-box {
+  align-self: center;
+} */
+
+.step-img-box {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Justify self aligns within div and it doesnt work out since the col is
+  bigger */
+  /* justify-self: center; */
+}
+
+.step-img-box::before,
+.step-img-box::after {
+  content: "";
+  display: block;
+
+  /* centered using absolute positioning */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+/* Adds an new child element as first element to the parent - pseudo element  */
+.step-img-box::before {
+  width: 60%;
+  /* height: 60%; */
+  /* 60% of parent's element width*/
+  padding-bottom: 60%;
+  background-color: #fdf2e9;
+  /* z index of neg value will make it go down */
+  z-index: -2;
+}
+
+/* Adds an new child element as last element to the parent - pseudo element  */
+.step-img-box::after {
+  width: 45%;
+  padding-bottom: 45%;
+  background-color: #fae5d3;
+  z-index: -1;
+}
+
+/* Cant add child elements to images */
+.step-img {
+  width: 35%;
+}
+
+/********************************/
+/* Meals section  */
+/********************************/
+.section-meals {
+  padding: 8rem 0;
+}
+
+.meals {
+  box-shadow: 0 2.4rem 4.8rem rgba(1, 1, 1, 0.1);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+
+.meals:hover {
+  transform: translateY(-1rem);
+  /* shadow becomes larger and lighter as we move towards the light source */
+  box-shadow: 0 3.2rem 6.4rem rgba(1, 1, 1, 0.06);
+}
+
+.meal-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: #111;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.tag--vegetarian {
+  background-color: #51cf66;
+}
+
+.tag--vegan {
+  background-color: #94d82d;
+}
+
+.tag--paleo {
+  background-color: #ffd43b;
+}
+
+.meal-content {
+  padding: 3.2rem 4.8rem;
+}
+
+.meal-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+.meal-attributes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.meal-attribute {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.meal-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #e67e22;
+}
+
+.meal-img {
+  width: 100%;
+}
+
+.all-recipes {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+/********************************/
+/* TESTIMONIALS section  */
+/********************************/
+.section-testimonials {
+  background-color: #fdf2e9;
+  display: grid;
+  grid-template-columns: 50fr 45fr;
+  align-items: center;
+}
+
+.testimonials-container {
+  padding: 8rem;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+}
+
+.testimonial-img {
+  width: 6.4rem;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+
+.testimonial-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+
+.testimonial-name {
+  font-size: 1.6rem;
+  color: #6f6f6f;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  padding: 1.6rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+}
+
+/* Figure is a inline element */
+.gallery-image {
+  display: block;
+  width: 100%;
+  transition: all 0.4s;
+}
+
+.gallery-image:hover {
+  transform: scale(1.1);
+}
+
+/********************************/
+/* Pricing section  */
+/********************************/
+.section-pricing {
+  padding: 8rem 0;
+}
+
+.pricing-plan {
+  border-radius: 11px;
+
+  width: 75%;
+}
+
+.pricing-plan--starter {
+  justify-self: end;
+  padding: 4.5rem;
+  border: 3px solid #fdf2e9;
+}
+
+.pricing-plan--complete {
+  background-color: #fdf2e9;
+  padding: 4.8rem;
+  position: relative;
+  /* Should be specified on the parent element */
+  overflow: hidden;
+}
+
+.pricing-plan--complete::after {
+  content: "Best value";
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  top: 6%;
+  right: -21%;
+  background-color: #ffd43b;
+  padding: 0.8rem 8rem;
+  color: #333;
+  transform: rotate(45deg);
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+
+.plan-name {
+  color: #cf711f;
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75;
+  margin-bottom: 3.2rem;
+}
+
+.plan-price {
+  font-size: 6.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+
+.plan-price span {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-right: 0.8rem;
+}
+
+.plan-text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #6f6f6f;
+}
+
+.plan-sign-up {
+  margin-top: 4.8rem;
+  text-align: center;
+}
+
+.plan-details {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.feature {
+  text-align: center;
+}
+
+.feature-icon {
+  color: #e67e22;
+  height: 3.2rem;
+  width: 3.2rem;
+  background-color: #fdf2e9;
+  border-radius: 50%;
+  padding: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+.feature-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+}
+
+.feature-text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+/********************************/
+/* CTA section  */
+/********************************/
+.section-cta {
+  padding: 4.8rem 0 12.8rem 0;
+}
+
+.cta {
+  display: grid;
+  /* 2/3 = 66.6% and 1/3 = 33.3% */
+  grid-template-columns: 2fr 1fr;
+  /* background-color: #e67e22; */
+  border-radius: 11px;
+  /* Gradient is treated as image 90 deg (to right/left/top)/180 deg/360 deg are possible */
+  background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
+
+  /* darker background darker shadow or else it might not be visible */
+  box-shadow: 0 2.4rem 4.8rem rgba(1, 1, 1, 0.15);
+  overflow: hidden;
+}
+
+.cta-text-box {
+  color: #45260a;
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+}
+
+.cta .heading-secondary {
+  color: #45260a;
+  margin-bottom: 3.2rem;
+}
+
+.cta-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+
+.cta-img-box {
+  /* Image is way too bright hence overlay another image with transparency*/
+  background-image: linear-gradient(
+      to right bottom,
+      hsla(28, 80%, 61%, 0.3),
+      hsla(28, 80%, 52%, 0.3)
+    ),
+    url(../img/eating.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+  align-items: flex-end;
+}
+
+.cta-form label {
+  display: flex;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.cta-form input,
+.cta-form select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  /* Inherit font-family from parent element */
+  /* Force the color and font-family to be inherited from parent */
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(1, 1, 1, 0.1);
+}
+
+/* Pseudo element we can select and color but that doesnt really exist in page */
+.cta-form input::placeholder {
+  color: #aaa;
+}
+
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  padding: 1.2rem 4.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
+
+.cta *:focus {
+  outline: none;
+  /* can set customized outlines  */
+  /* outline: 4px dotted #333;
+  outline-offset: 6px; */
+  box-shadow: 0 0 0 0.8rem hsla(27, 83%, 95%, 0.5);
+}
+
+/********************************/
+/* Footer section  */
+/********************************/
+.footer {
+  padding: 13rem 0;
+  border-top: 1px solid #ddd;
+}
+
+.grid--footer {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
+
+.logo-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: block;
+  margin-bottom: 3.2rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 2.4rem;
+  list-style: none;
+}
+
+.social-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.copyright {
+  font-size: 1.4rem;
+  color: #767676;
+  line-height: 1.6;
+  /* automatically calculated to make this content appear at the bottom of the flex container */
+  margin-top: auto;
+}
+
+.contact-info {
+  font-style: normal;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.contact-address {
+  margin-bottom: 2.4rem;
+}
+
+.footer-heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
+}
+
+.footer-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #767676;
+  transition: all 0.3s;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  color: #333;
+}

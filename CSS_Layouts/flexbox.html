@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox</title>
+    <style>
+      .el--1 {
+        background-color: blueviolet;
+      }
+      .el--2 {
+        background-color: orangered;
+      }
+      .el--3 {
+        background-color: green;
+        height: 150px;
+      }
+      .el--4 {
+        background-color: goldenrod;
+      }
+      .el--5 {
+        background-color: palevioletred;
+      }
+      .el--6 {
+        background-color: steelblue;
+      }
+      .el--7 {
+        background-color: yellow;
+      }
+      .el--8 {
+        background-color: crimson;
+      }
+
+      .container {
+        /* STARTER */
+        font-family: sans-serif;
+        background-color: #ddd;
+        font-size: 40px;
+        margin: 40px;
+
+        /* FLEXBOX */
+        display: flex;
+        /* To vertically align (cross axis) items in the center
+        Try using flex-start and flex-end */
+        /* align-items: stretch --> default value of align-items*/
+        align-items: center;
+
+        /* To horizontally align (main axis) it use justify-content */
+        /* Can also use space-between and space-around to align-items */
+        justify-content: center;
+
+        /* To create space manually between items */
+        gap: 10px;
+      }
+
+      .el {
+        /* Default values 
+        flex-grow:0;
+        flex-shrink: 1;
+        flex-basis: auto; */
+        /* flex: 0 1 auto; */
+        /* Provide the width of items in flex basis if item is larger, the width is extended */
+        /* If not enough space in the container to fit the item with this width
+        then flex box automatically shrinks the items in the container */
+        flex-basis: 100px;
+        /* flex-grow if set to 1 then flex items can extend and fill the container else
+        the items will exactly occupy the width of the content */
+      }
+
+      /* Flex items properties */
+      .el--1 {
+        /* Override the container align-items property */
+        align-self: flex-start;
+        /* if order provided is greater than 1 then this item will be the last one */
+        /* allowed to fill up the remaining space in the container */
+        flex-grow: 1;
+      }
+
+      .el--5 {
+        /* Default value of flex items */
+        align-self: stretch;
+        /* anynumber greater than 0 will bring the item to the end */
+        order: 1;
+      }
+
+      .el--6 {
+        /* order by default 0 , anynumber less than 0 will bring the item to the front */
+        order: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Flex container and children under them are flex items -->
+    <!-- Flex contatiner takes the height of the longest element -->
+    <div class="container">
+      <div class="el el--1">HTML</div>
+      <div class="el el--2">and</div>
+      <div class="el el--3">CSS</div>
+      <div class="el el--4">are</div>
+      <div class="el el--5">amazing</div>
+      <div class="el el--6">languages</div>
+      <div class="el el--7">to</div>
+      <div class="el el--8">learn</div>
+    </div>
+  </body>
+</html>

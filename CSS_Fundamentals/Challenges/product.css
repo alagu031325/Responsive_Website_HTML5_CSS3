@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.4;
+  font-size: 16px;
+  height: 550px;
+}
+
+.head-sec {
+  background: #999;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 10px 0;
+}
+
+.overall-container {
+  border: 3px solid black;
+  width: 825px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.sale-product {
+  padding: 10px;
+  top: -20px;
+  left: -30px;
+  color: white;
+  background-color: red;
+  position: absolute;
+  border: None;
+  /* width: 80px; */
+  display: inline-block;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+
+.product-img {
+  height: auto;
+  width: 30%;
+}
+
+h3 {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.price-details {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.shipping-details {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.color-picker {
+  width: 30px;
+  height: 30px;
+  border: None;
+  margin: 30px 15px 10px 0;
+  display: inline-block;
+}
+
+.color-black {
+  background-color: #111;
+}
+
+.color-blue {
+  background-color: #137cec;
+}
+
+.color-red {
+  background-color: #fe0101;
+}
+
+.color-yellow {
+  background-color: #f5d60f;
+}
+
+.color-green {
+  background-color: #77f50f;
+}
+
+.color-brown {
+  background-color: #6e330c;
+}
+
+/* .color-picker:first-child {
+  margin-left: 0;
+} */
+
+.prod-description {
+  margin-bottom: 10px;
+}
+
+#more-info:hover,
+#more-info:active {
+  text-decoration: none;
+}
+
+.prod-details {
+  margin-top: 20px;
+}
+
+.prod-details li {
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.prod-details li:last-child {
+  margin-bottom: 5px;
+}
+
+a:link,
+a:visited {
+  color: black;
+}
+
+.bulleted {
+  list-style-type: square;
+}
+
+#btn-add {
+  background-color: black;
+  color: white;
+  border: 3px solid black;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 10px 0;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+#btn-add:hover {
+  color: black;
+  background-color: white;
+}
+
+.footer-cls {
+  font-size: smaller;
+  text-align: center;
+}

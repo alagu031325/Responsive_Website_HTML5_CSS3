@@ -1,0 +1,351 @@
+/* universal selector - applies to every single element on the page */
+* {
+  /* lowest priority */
+  color: black;
+  box-sizing: border-box; /* Cant be inherited so not placed in body*/
+}
+
+/* Inherited styles can be easily overriden */
+body {
+  /* These are not conflicting rules but simply passed on to the child */
+  color: #888;
+  font-family: sans-serif;
+  /* Not properties can be inherited, mostly text related properties are inherited by child elements*/
+  border-top: 5px solid #1098ad;
+}
+
+.container {
+  width: 90%;
+  /* margin on the left should be equal to the margin on the right and is
+  automatically calculated by the browser */
+  margin: 0 auto;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  /* short hand representation of hexadecimal value
+  when each pair has same value */
+  color: #222;
+}
+
+h1,
+h2,
+h3 {
+  color: #1098ad;
+}
+
+h1 {
+  font-size: 35px;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 40px;
+  position: relative;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+  /* Will be at the center of the parent element */
+  text-align: center;
+}
+
+nav {
+  font-size: larger;
+}
+
+p {
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+li {
+  font-size: 20px;
+}
+
+/* Descendent selector */
+/* footer p {
+  font-size: 15px;
+  text-align: center;
+} */
+
+#author {
+  font-style: italic;
+  font-size: 18px;
+}
+
+#copyright {
+  font-size: 15px;
+  text-align: center;
+  color: #999;
+}
+
+.related-author {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.related {
+  list-style: none;
+}
+
+.main-header {
+  background-color: #f7f7f7;
+  /* applies evenly to all 4 sides */
+  /* padding : 10px; */
+  /* First parameter applies to top and bottom
+  second parameter applies to left and right */
+  padding: 10px 5px;
+  /* margin-bottom: 10px; */
+}
+
+.post-img {
+  /* overrides the html style */
+  /* width: 700px; */
+  /* percentage of the width of the parent container - size adapts to parent container */
+  width: 100%;
+  height: auto;
+}
+
+/* element selector */
+aside {
+  background-color: #f7f7f7;
+  /* width style color of border */
+  border-top: 5px solid #1098ad;
+  border-bottom: 5px solid #1098ad;
+  /* shorthand notation */
+  padding: 10px 20px;
+  box-sizing: border-box; /* padding defined will reduce the inner width of the content area*/
+}
+
+li {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Pseudo classes - works well when all child elements are same*/
+li:first-child {
+  font-weight: bold;
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/* Can specify any number or keywords to select the respective child */
+/* li:nth-child(odd) {
+  color: red;
+} */
+
+/* selects the paragraph if p is the last child of article */
+article p:last-child {
+  font-style: italic;
+}
+
+/* Styling hyperlinks */
+/* a elements that have a href attribute */
+a:link,
+a:visited {
+  color: #1098ad;
+  text-decoration: none;
+}
+
+/* visited links  */
+a:hover {
+  color: green;
+  text-decoration: underline solid green;
+}
+
+/* active pseudo class added when link is clicked */
+a:active {
+  background-color: #999;
+  font-style: italic;
+}
+
+/* Resolving conflicts */
+.copyright {
+  color: red;
+}
+
+.footertext {
+  color: green;
+}
+
+button {
+  cursor: pointer;
+  position: realtive;
+  padding: 20px;
+  font-size: 20px;
+  left: 90%;
+  bottom: 20%;
+  /* top and bottom are with respect to viewport (visible part of the page) */
+  /* To change this, we have to position button within the parent element(first) with 
+  position set to relative  */
+}
+
+/* Pseudo elements */
+h1::first-letter {
+  font-style: normal;
+  margin-left: 5px;
+}
+
+/* Json sibling selector - siblings are elements under one container
+  json sibling to an element is its immediate next element */
+/* first paragraph after h3 element */
+h3 + p::first-line {
+  font-style: italic;
+}
+
+/* to add small style - no need to add new element to html */
+/* Any pseudo element is an inline element */
+/* before -> first child element of the selected element */
+h2::after {
+  content: "IMP";
+  background-color: #ffe70e;
+  color: #000;
+  font-size: 15px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  right: -25px;
+}
+/* footer p {
+  color: blue !important;
+} */
+
+/* Smaller Elements */
+
+/* nav a:link {
+  /* Anchor element is inline element, so box model 
+  height and width properties cant be applied to inline element's box model */
+/* margin: 5px 15px; 
+  margin-right: 20px;
+  /* display: inline-block; --> occupies the content area, no line
+  breaks, accepts height and width properties
+} */
+
+nav a:link:last-child {
+  margin-right: 0;
+}
+
+/* Floats */
+/* 
+.author-img {
+  float: left;
+  margin-bottom: 20px;
+}
+
+.author-details {
+  margin-left: 80px;
+  margin-top: 3em;
+}
+
+/* after pseudo element - creates a new element which will be the last child element
+of the container  
+/* clear fix hacks 
+.clearfix::after {
+  clear: both; /* clear float 
+  content: ""; /* atleast empty content is mandatory for after and before pseudo elements 
+  display: block; /* clear works for block level elements 
+}
+
+article {
+  width: 60%;
+  float: left;
+}
+
+aside {
+  width: 30%;
+  float: right;
+}
+
+footer {
+  clear: both;
+}
+*/
+/* Flex Box */
+.main-header {
+  display: flex;
+  align-items: center;
+  /* space between two of the flex items */
+  justify-content: space-between;
+}
+
+.author-box {
+  display: flex;
+  align-items: center;
+}
+
+.author-details {
+  margin-left: 10px;
+}
+
+.related-post {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.related-link:link {
+  font-size: 17px;
+  font-weight: bold;
+  font-style: normal;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.related-author {
+  margin: 0 0;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* FLEX BOX Layout 
+.flex-container {
+  display: flex;
+  gap: 75px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+article {
+  flex: 1;
+}
+
+aside {
+  /* flex shrink deaults to 1 to adjust based on container 
+  flex: 0 0 320px;
+  margin-top: 20px;
+} */
+
+/* CSS Grid Layout */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  column-gap: 75px;
+  row-gap: 50px;
+  align-items: start;
+}
+
+.main-header {
+  /* grid-column: 1 / span 2; */
+  grid-column: 1/-1;
+}
+
+footer {
+  grid-column: 1/-1;
+}

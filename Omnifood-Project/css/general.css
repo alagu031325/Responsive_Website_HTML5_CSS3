@@ -1,0 +1,315 @@
+/* 
+Design System:
+
+-- 01 Typography system --
+
+-FONT SIZE SYSTEM (px):
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+-FONT Weights:
+Default- 400
+Medium - 500
+Semi Bold - 600
+Bold - 700
+
+-Line Heights:
+Default - 1
+Paragraph default - 1.6 
+Small - 1.05
+Medium - 1.2
+
+
+-- 02 Colors --
+
+Primary: Brand color: #e67e22
+
+Tints-#fdf2e9
+#fae5d3
+Shades-#cf711f
+#eb984e
+#45260a
+
+Accents-
+Greys-
+#6f6f6f - lightest grey allowed on #fdf2e9
+#555
+#333 - darker shade
+
+-- 05 Shadows --
+box-shadow: 0 2.4rem 4.8rem rgba(1, 1, 1, 0.1);
+
+-- 06 Border Radius --
+Default - 9px
+
+-- 07 White Space --
+
+-- 08 Letter Spacing --
+-0.05 px
+-0.75px
+
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+* {
+  /* To override default styles of all browsers */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* this will override the default rem equivalent of 16px to 10px */
+  /* font-size: 10px; */
+  /* Only the root font-size will be used overriding the user defined ones - usability problems So instead of setting it to static value set with percentages*/
+  font-size: 62.5%;
+  /* 10px / 16px = 0.625 = 62.5% */
+  /* Percentage of user's browser font-size setting */
+  /*  So if user sets the font size to 18px then 62.5% of 18 will be 11.25 px thus
+    respecting the user's font-size settings */
+  /* So to create responsive design just changing the font-size in the media query 
+    and using rem units, will make the trick to change all the lengths according 
+    to browser widths */
+  /* Doesn't work on safari and microsoft edge */
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  /* This only works if there is nothing absolutely positioned in relation to body */
+  overflow-x: hidden;
+}
+
+/* Learning Purpose */
+
+/* <div class="test">TEST</div> */
+.test {
+  /* Takes the width of the parent container 
+    Adapts to view port width*/
+
+  /* If the container width is larger than the specified max-width
+    then width of the element will be equal to the value that is specified
+    However if the contatiner width is less than the specified max-width then
+    the width of the element would be 100% of the container element width */
+
+  /* max-width: 1000px; */
+
+  /* rem - root element font size */
+  max-width: 50rem;
+  /* Default: 1 rem = 16px -> 50*16 = 800px */
+  color: #fff;
+  font-size: 2rem;
+  /* 2rem = 32px */
+
+  padding: 4rem;
+  background-color: brown;
+}
+
+/********************************/
+/* General Reusable components  */
+/********************************/
+
+/* Select all elements and use focus pseudo class */
+*:focus {
+  outline: none;
+  /* can set customized outlines  */
+  /* outline: 4px dotted #333;
+  outline-offset: 6px; */
+  box-shadow: 0 0 0 0.8rem #e67d228c;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: #333;
+  /* very small distance that
+    doesnt need scaling up or down so can use px */
+  letter-spacing: -0.5px;
+}
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+
+.subheading {
+  /* span is generally an inline element */
+  display: block;
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  border-radius: 9px;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+
+  /* necessary for .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  /* To include animations - change value of certain properties*/
+  /* all says to animate all properties like
+    background-color and color */
+  /* Put the transition on original element */
+  transition: all 0.3s;
+}
+
+/* Common styles in btn and individual styles in specific classes */
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+  color: #fff;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+  color: #555;
+
+  /* Border is added to the outside */
+  /* Trick to add border inside */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.container {
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  row-gap: 8rem;
+  column-gap: 6.4rem;
+  /* margin-bottom: 9.6rem; */
+}
+
+/* .grid:last-child {
+  margin-bottom: 0;
+} */
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--center-v {
+  align-items: center;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: #e67e22;
+  text-decoration: none;
+  /* currentcolor uses the color of the text element */
+  border-bottom: 1px solid currentColor;
+  /* distance between the anchor and the border */
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  /* to make the border transparent instead of removing it while hovering */
+  /* border-bottom: none; */
+  border-bottom: 1px solid transparent;
+}
+
+/* Helper classes */
+
+/* margins that can be reused at multiple places */
+.margin-right-sm {
+  /* margin right small */
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  /* margin right small */
+  margin-bottom: 4.8rem !important;
+}
+
+strong {
+  font-weight: 500;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
