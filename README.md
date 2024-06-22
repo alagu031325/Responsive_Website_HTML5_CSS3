@@ -11,7 +11,7 @@ Contents:
 4) Web Design Rules and Framework
 5) Components and Layout pattern
 6) Omni Food Responsive Real World project
-https://alagu-omnifood-project.netlify.app/ - Hosted Omni Food Project on Netlify
+https://alagu-responsive-project.netlify.app/ - Hosted Omni Food Project on Netlify
 
 
 
